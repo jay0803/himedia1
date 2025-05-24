@@ -16,7 +16,7 @@ public class LoginSVC {
     public void connect() {
         try {
             String url = "jdbc:mysql://localhost:3306/lms";
-            con = DriverManager.getConnection(url, "root", "1111");
+            con = DriverManager.getConnection(url, "root", "dongyang");
             System.out.println("Connection Success!");
         } catch (SQLException se) {
             se.printStackTrace();
@@ -39,7 +39,9 @@ public class LoginSVC {
 
             if (rs.next()) {
                 String name = rs.getString("mnm");
-                user = new User(id, passwd, name);
+                String role = rs.getString("role");
+                int state = rs.getInt("state");
+                user = new User(id, passwd, name, role, state);
             }
         } catch (SQLException se) {
             System.out.println("로그인 중 오류 발생");

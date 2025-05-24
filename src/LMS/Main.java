@@ -12,6 +12,7 @@ public class Main {
 
             switch (input) {
                 case "1":
+                    //관리자 메뉴로 이동
                     ManagerMenu.showManagerMenu(scanner);
                     break;
                 case "2":
